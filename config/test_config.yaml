@@ -1,0 +1,41 @@
+eval:
+  model:
+    name: "/raid/models/llama-7b-hf"
+    load_in_8bit: false
+    peft_model_id: /home/st-gorbatovski/sollama/src/sft/artifacts/experiments/train-llama-7b-bs_32-lr_1e4-m_l_1280-m_p_l_768-filtred_no_code-no_0_scores
+    torch_dtype: fp16 # fp16/null
+    device_map: cuda:1
+    padding_side: left
+  seed: 42
+  batch_size: 16
+  compute_metrics: true
+  data:
+    dataset_name: Myashka/SO-Python_QA-filtered-2023-tanh_score
+    max_prompt_length: 768
+    split: "test"  
+    use_title: true
+    columns_to_save:
+      - Question
+      - Answer
+      - Title # if use_title
+      - Score
+      - Users Score
+  generate_config:
+    do_sample: true
+    max_new_tokens: 512
+    no_repeat_ngram_size: 2
+    top_k: 50
+    top_p: 0.9
+    use_cache: true
+    num_return_sequences: 1
+log_config:
+  save_steps: 5
+  dir: /home/st-gorbatovski/sollama/src/sft/artifacts/tests/filtered_23_dataset
+  file_name: test-LoRA_llama_filt_no_code-7b-max_prompt_length_768-filtered_23_dataset.csv
+
+wandb_config:
+  project: 'SO_LLAMA'
+  name: test-LoRA_llama_filt_no_code-7b-max_prompt_length_768-filtered_23_dataset
+  tags:
+    - "stf"
+    - "test"

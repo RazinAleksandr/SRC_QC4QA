@@ -1,0 +1,3 @@
+python bert_eval.py --file_path /home/st-gorbatovski/sollama/src/sft/artifacts/tests/filtered_no_code_dataset/test-base_llama-7b-max_prompt_length_768-filt_no_code_data.csv --device cuda:1
+python bert_eval.py --file_path /home/st-gorbatovski/sollama/src/sft/artifacts/tests/filtered_no_code_dataset/test-LoRA_llama_filt_no_code_data-7b-max_prompt_length_768-filt_no_code_data.csv --device cuda:1
+python bert_eval.py --file_path /home/st-gorbatovski/sollama/src/sft/artifacts/tests/filtered_no_code_dataset/test-LoRA_llama_filt_no_code-7b-max_prompt_length_768-filt_no_code_data.csv --device cuda:1
