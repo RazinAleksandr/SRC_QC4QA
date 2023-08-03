@@ -1,0 +1,5 @@
+raw_data_path: "/home/arazin/main/work/HUAWEI/SRC/QCQA/question_classification/dataset/processed_data/question_with_code_description_180k.csv"
+processed_data_path: "/home/arazin/main/work/HUAWEI/SRC/QCQA/question_classification/dataset/train_val_data"
+classes_path: "/home/arazin/main/work/HUAWEI/SRC/QCQA/question_classification/configs/text_with_code_classes.yaml"
+val_size: 0.15
+shuffle: true
