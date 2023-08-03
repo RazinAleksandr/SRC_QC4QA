@@ -106,10 +106,10 @@ def load_model(model_config):
         torch_dtype=torch_dtype,
         device_map=model_config["device_map"],
     )
-    model = fix_model(model, tokenizer, not model_config["load_in_8bit"])
+    # model = fix_model(model, tokenizer, not model_config["load_in_8bit"])
     if model_config.get("peft_model_id"):
         model = PeftModel.from_pretrained(
-            model, model_config["peft_model_id"], torch_dtype=torch_dtype
+            model, model_config["peft_model_id"], torch_dtype=torch_dtype, device_map=model_config["device_map"] ##
         )
 
     return model, tokenizer

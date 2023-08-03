@@ -8,19 +8,42 @@ from torchmetrics.text.rouge import ROUGEScore
 from tqdm import tqdm
 from transformers import GenerationConfig
 
-from src.sft.utils import log_metrics_histograms, log_table, save_csv
+from SRC_QC4QA.utils import log_metrics_histograms, log_table, save_csv
+
+# def generate_outputs(model, batch_ids, generation_config):
+#     # Assuming that your model is on CUDA
+#     # Move the batch data to the same device as the model
+#     batch_ids = {k: v.to('cpu') for k, v in batch_ids.items()}
+#     model = model.to('cpu')
+#     for key, tensor in batch_ids.items():
+#         print(f"{key} is on {tensor.device}")
+
+#     with torch.autocast("cuda"):
+#         output_tokens = (
+#             model.generate(
+#                 input_ids=batch_ids["input_ids"],
+#                 attention_mask=batch_ids["attention_mask"],
+#                 generation_config=generation_config,
+#             )
+#             .cpu()
+#             .numpy()
+#         )
+#     return output_tokens
 
 
 def generate_outputs(model, batch_ids, generation_config):
     with torch.autocast("cuda"):
         output_tokens = (
             model.generate(
-                input_ids=batch_ids["input_ids"],
-                attention_mask=batch_ids["attention_mask"],
+                input_ids=batch_ids["input_ids"].to('cuda:1'), ###
+                attention_mask=batch_ids["attention_mask"].to('cuda:1'),###
                 generation_config=generation_config,
             )
+            .detach()
             .cpu()
             .numpy()
+            # .cpu()
+            # .numpy()
         )
     return output_tokens
 
@@ -96,7 +119,7 @@ def eval_model(
 
     results = pd.DataFrame()
     generation_config = GenerationConfig(**generate_config)
-
+    model = model.to('cuda:1')
     for i, (batch_ids, batch_qa) in enumerate(tqdm(zip(dataloader_ids, dataloader_qa), total=len(dataloader_qa))):
         batch_ids = {k: v.to(model.device) for k, v in batch_ids.items()}
         output_tokens = generate_outputs(model, batch_ids, generation_config)

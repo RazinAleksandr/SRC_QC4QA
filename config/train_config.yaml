@@ -1,5 +1,5 @@
 model:
-  name: "yahma/llama-7b-hf" # путь файлов модели
+  name: "/raid/models/llama-7b-hf" # путь файлов модели
   load_in_8bit: true
   peft_model_id: null # указать, чтобы загрузить Peft веса с HF
   torch_dtype: fp16 # fp16/null - dtype модели
@@ -9,14 +9,24 @@ model:
 lora_config:
   r: 16
   lora_alpha: 32
-  lora_dropout: 0.05
+  lora_dropout: 0.1
   bias: "none"
+
+ptune_config:
+  num_virtual_tokens: 512
+  #token_dim: 4096
+  num_transformer_submodules: 1
+  #num_attention_heads: 12
+  #num_layers: 12
+  encoder_reparameterization_type: "MLP"
+  encoder_hidden_size: 4096
+
 
 data:
   train_split: train
   val_split: validation
   dataset:
-    dataset_name: "Myashka/SO-Python_QA-filtered-2023-no_code-tanh_score"
+    dataset_name: "RazinAleks/SO-Python_QA-Web_Development_class"  #"RazinAleks/SO-Python_QA-Database_and_SQL_class"
     max_length: 1280
     max_prompt_length: 768
     use_title: true
@@ -24,13 +34,13 @@ data:
 
 training_arguments:
   seed: 42
-  num_train_epochs: 15
-  per_device_train_batch_size: 32
-  per_device_eval_batch_size: 32
-  learning_rate: 1.0e-04
+  num_train_epochs: 10
+  per_device_train_batch_size: 16
+  per_device_eval_batch_size: 16
+  learning_rate: 0.0003 #1.0e-04
   optim: "adamw_torch"
   # Oprims: adamw_hf/adamw_torch/adamw_torch_fused/adamw_apex_fused/adamw_anyprecision/adafactor
-  weight_decay: 0.01
+  weight_decay: 0.1
   adam_beta1: 0.9
   adam_beta2: 0.99
   max_grad_norm: 1
@@ -47,7 +57,7 @@ training_arguments:
 
   ### EVALUATION ###
   evaluation_strategy: "steps" # steps/epoch
-  eval_steps: 0.03
+  eval_steps: 0.05
   fp16_full_eval: true
   logging_first_step: true
   prediction_loss_only: true
@@ -57,8 +67,8 @@ training_arguments:
 
   ### SAVING ###
   save_strategy: "steps" #steps/epoch; if steps needs `save_steps`
-  save_steps: 0.03
-  output_dir: /home/arazin/main/work/HUAWEI/SRC/Domain_QA/sft/artifacts/experiments/train-llama-7b-bs_32-lr_1e4-m_l_1280-m_p_l_768-filtred_no_code-no_0_scores
+  save_steps: 0.05
+  output_dir: /home/st-aleksandr-razin/workspace/SRC_QC4QA/artifacts/experiments/train-ptune-llama-Web_Development_class-7b-bs_16-lr_3e4-m_l_1280-m_p_l_768-num_toks_512-w_decay_0.1
   save_total_limit: 1
   load_best_model_at_end: true
   resume_from_checkpoint: null
@@ -67,7 +77,7 @@ training_arguments:
   logging_strategy: "steps"
   logging_steps: 1
   report_to: 'wandb'
-  run_name: "train-llama-7b-bs_32-lr_1e4-m_l_1280-m_p_l_768-filtred_no_code-no_0_scores"
+  run_name: "train-ptune-llama-Web_Development_class-7b-bs_16-lr_3e4-m_l_1280-m_p_l_768-num_toks_512-w_decay_0.1"
 
 # generation_config:
 #   do_sample: true

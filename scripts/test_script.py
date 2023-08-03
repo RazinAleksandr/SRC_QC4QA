@@ -9,13 +9,15 @@ from transformers import DataCollatorForTokenClassification
 from yaml import CLoader
 
 import sys
+import os
+sys.path.append("/home/st-aleksandr-razin/workspace")
 
-sys.path.append("/home/st-gorbatovski/sollama/")
+from SRC_QC4QA.utils import load_model, set_random_seed
+from SRC_QC4QA.data import make_inference_dataset
+from SRC_QC4QA.models import eval_model
 
-from src.sft.utils import load_model, set_random_seed
-from src.sft.data import make_inference_dataset
-from src.sft.models import eval_model
-
+os.environ["WANDB_CONFIG_DIR"] = "/home/st-aleksandr-razin/tmp"
+wandb.login(key="7b05886251cc6b183079b0926f463890604799a7")
 
 @click.command()
 @click.option("--config_file", default="config.yaml", help="Path to config YAML file")

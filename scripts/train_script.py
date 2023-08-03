@@ -9,6 +9,15 @@ from peft import (
     prepare_model_for_kbit_training,
     get_peft_model_state_dict,
 )
+from peft import (
+    get_peft_config,
+    get_peft_model,
+    get_peft_model_state_dict,
+    set_peft_model_state_dict,
+    PeftType,
+    PromptEncoderConfig,
+)
+
 from transformers import (
     # GenerationConfig,
     Trainer,
@@ -19,15 +28,16 @@ from transformers import (
 import sys
 import os
 
-sys.path.append("/home/arazin/main/work/HUAWEI/SRC/Domain_QA/")
-from sft.data import make_train_dataset  # , make_inference_dataset
-from sft.utils import load_model, set_random_seed, SavePeftModelCallback
+sys.path.append("/home/st-aleksandr-razin/workspace/")
+from SRC_QC4QA.data import make_train_dataset  # , make_inference_dataset
+from SRC_QC4QA.utils import load_model, set_random_seed, SavePeftModelCallback
 
-os.environ["WANDB_PROJECT"] = "SO_LLAMA_2"
-os.environ["WANDB_WATCH"] = "all"
+os.environ["WANDB_PROJECT"] = "SRC_QC4QA"
+os.environ["WANDB_CONFIG_DIR"] = "/home/st-aleksandr-razin/tmp"
+os.environ["WANDB_WATCH"] = "none"
 os.environ["WANDB_LOG_MODEL"] = "checkpoint"
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
-
+wandb.login(key="7b05886251cc6b183079b0926f463890604799a7")
 
 @click.command()
 @click.option("--config_file", default="config.yaml", help="Path to config YAML file")
@@ -48,15 +58,19 @@ def main(config_file):
     model, tokenizer = load_model(config["model"])
     if config["model"]["load_in_8bit"]:
         model = prepare_model_for_kbit_training(model)
-
+    #print(model)
+    
     # if not ddp and torch.cuda.device_count() > 1:
     #     model.is_parallelizable = True
     #     model.model_parallel = True
 
     # prepare LoRA model for training
     if not config["model"].get("peft_model_id"):
-        lora_config = LoraConfig(task_type="CAUSAL_LM", **config["lora_config"])
-        model = get_peft_model(model, lora_config)
+        # lora_config = LoraConfig(task_type="CAUSAL_LM", **config["lora_config"])
+        peft_config = PromptEncoderConfig(peft_type="P_TUNING", task_type="CAUSAL_LM", **config["ptune_config"])
+        # peft_config = PromptEncoderConfig(peft_type="P_TUNING", task_type="CAUSAL_LM")
+        # model = get_peft_model(model, lora_config)
+        model = get_peft_model(model, peft_config)
     model.enable_input_require_grads()
     model.print_trainable_parameters()
 
