@@ -1,0 +1,80 @@
+wandb_version: 1
+
+model:
+  desc: null
+  value:
+    name: /raid/models/llama-7b-hf
+    load_in_8bit: true
+    peft_model_id: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/artifacts/experiments/train-llama-7b-hf-Lora-Data_Science_and_Machine_Learning_class-bs_16-lr_5e-05-m_l_1280-m_p_l_768-w_decay_0.2
+    torch_dtype: fp16
+    device_map: cuda:1
+    padding_side: left
+seed:
+  desc: null
+  value: 42
+batch_size:
+  desc: null
+  value: 16
+compute_metrics:
+  desc: null
+  value: true
+data:
+  desc: null
+  value:
+    dataset_name: RazinAleks/SO-Python_QA-Data_Science_and_Machine_Learning_class
+    max_prompt_length: 768
+    split: test
+    use_title: true
+    columns_to_save:
+    - Question
+    - Answer
+    - Title
+    - Score
+    - Users Score
+generate_config:
+  desc: null
+  value:
+    do_sample: true
+    max_new_tokens: 512
+    no_repeat_ngram_size: 2
+    top_k: 50
+    top_p: 0.9
+    use_cache: true
+    num_return_sequences: 1
+_wandb:
+  desc: null
+  value:
+    python_version: 3.10.12
+    cli_version: 0.15.5
+    framework: huggingface
+    huggingface_version: 4.31.0.dev0
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    start_time: 1691144647.521059
+    t:
+      1:
+      - 1
+      - 11
+      - 49
+      - 51
+      - 55
+      - 71
+      - 98
+      2:
+      - 1
+      - 11
+      - 49
+      - 51
+      - 55
+      - 71
+      - 98
+      3:
+      - 13
+      - 15
+      - 16
+      - 23
+      4: 3.10.12
+      5: 0.15.5
+      6: 4.31.0.dev0
+      8:
+      - 5

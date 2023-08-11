@@ -1,3 +1,8 @@
+model_run_name:
+  adapter_type: "Lora"
+  domain_class: "API_USAGE"
+  main_model: "llama-7b-hf"
+
 model:
   name: "/raid/models/llama-7b-hf" # путь файлов модели
   load_in_8bit: true
@@ -7,7 +12,7 @@ model:
   padding_side: left # try right
 
 lora_config:
-  r: 16
+  r: 8
   lora_alpha: 32
   lora_dropout: 0.1
   bias: "none"
@@ -21,26 +26,25 @@ ptune_config:
   encoder_reparameterization_type: "MLP"
   encoder_hidden_size: 4096
 
-
 data:
   train_split: train
   val_split: validation
   dataset:
-    dataset_name: "RazinAleks/SO-Python_QA-Web_Development_class"  #"RazinAleks/SO-Python_QA-Database_and_SQL_class"
-    max_length: 1280
-    max_prompt_length: 768
+    dataset_name: "RazinAleks/SO-Python_QA-"  #"RazinAleks/SO-Python_QA-Database_and_SQL_class"
+    max_length: 768
+    max_prompt_length: 512
     use_title: true
     filter_zero_scores: true
 
 training_arguments:
   seed: 42
   num_train_epochs: 10
-  per_device_train_batch_size: 16
-  per_device_eval_batch_size: 16
-  learning_rate: 0.0003 #1.0e-04
+  per_device_train_batch_size: 32
+  per_device_eval_batch_size: 32
+  learning_rate: 0.00003 #1.0e-04
   optim: "adamw_torch"
   # Oprims: adamw_hf/adamw_torch/adamw_torch_fused/adamw_apex_fused/adamw_anyprecision/adafactor
-  weight_decay: 0.1
+  weight_decay: 0.2
   adam_beta1: 0.9
   adam_beta2: 0.99
   max_grad_norm: 1
@@ -57,7 +61,7 @@ training_arguments:
 
   ### EVALUATION ###
   evaluation_strategy: "steps" # steps/epoch
-  eval_steps: 0.05
+  eval_steps: 0.05 ## 650 steps, 0.05*650 = 33 step
   fp16_full_eval: true
   logging_first_step: true
   prediction_loss_only: true
@@ -68,7 +72,7 @@ training_arguments:
   ### SAVING ###
   save_strategy: "steps" #steps/epoch; if steps needs `save_steps`
   save_steps: 0.05
-  output_dir: /home/st-aleksandr-razin/workspace/SRC_QC4QA/artifacts/experiments/train-ptune-llama-Web_Development_class-7b-bs_16-lr_3e4-m_l_1280-m_p_l_768-num_toks_512-w_decay_0.1
+  output_dir: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/artifacts/experiments/
   save_total_limit: 1
   load_best_model_at_end: true
   resume_from_checkpoint: null
@@ -77,7 +81,7 @@ training_arguments:
   logging_strategy: "steps"
   logging_steps: 1
   report_to: 'wandb'
-  run_name: "train-ptune-llama-Web_Development_class-7b-bs_16-lr_3e4-m_l_1280-m_p_l_768-num_toks_512-w_decay_0.1"
+  #run_name: "train-ptune-llama-Web_Development_class-7b-bs_16-lr_3e4-m_l_1280-m_p_l_768-num_toks_512-w_decay_0.2"
 
 # generation_config:
 #   do_sample: true

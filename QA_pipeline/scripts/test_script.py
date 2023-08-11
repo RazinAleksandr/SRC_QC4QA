@@ -10,11 +10,11 @@ from yaml import CLoader
 
 import sys
 import os
-sys.path.append("/home/st-aleksandr-razin/workspace")
+sys.path.append("/home/st-aleksandr-razin/workspace/SRC_QC4QA/")
 
-from SRC_QC4QA.utils import load_model, set_random_seed
-from SRC_QC4QA.data import make_inference_dataset
-from SRC_QC4QA.models import eval_model
+from QA_pipeline.utils import load_model, set_random_seed
+from QA_pipeline.data import make_inference_dataset
+from QA_pipeline.models import eval_model
 
 os.environ["WANDB_CONFIG_DIR"] = "/home/st-aleksandr-razin/tmp"
 wandb.login(key="7b05886251cc6b183079b0926f463890604799a7")
@@ -24,6 +24,23 @@ wandb.login(key="7b05886251cc6b183079b0926f463890604799a7")
 def main(config_file):
     with open(config_file, "r") as f:
         config = yaml.load(f, Loader=CLoader)
+
+    model_run_name = f"test-{config['eval']['generate_config']['max_new_tokens']}-{config['eval']['generate_config']['temperature']}" + f"{config['eval']['model']['peft_model_id'].split('/')[-1]}"[5:]
+
+    config['eval']['data']['dataset_name'] += config['run_config']['domain']
+    
+    config['log_config']['dir'] = config['log_config']['dir'] + config['run_config']['domain']
+    config['log_config']['file_name'] = model_run_name + '.csv'
+    
+    config['wandb_config']['name'] = model_run_name
+    config['wandb_config']['tags'] += [config['run_config']['domain'][:-6]]
+    config['wandb_config']['tags'] += [config['run_config']['adapter']]
+
+    # print(config['eval']['data']['dataset_name'])
+    # print(config['log_config']['dir'])
+    # print(config['log_config']['filename'])
+    # print(config['wandb_config']['name'])
+    # print(config['wandb_config']['tags'])
 
     model, tokenizer = load_model(config["eval"]["model"])
     model.eval()

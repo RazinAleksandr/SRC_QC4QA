@@ -1,0 +1,30 @@
+  0%|                                                                                                                                                                              | 0/370 [00:00<?, ?it/s]/home/st-aleksandr-razin/.conda/envs/qc4qa/lib/python3.10/site-packages/bitsandbytes/autograd/_functions.py:321: UserWarning: MatMul8bitLt: inputs will be cast from torch.float32 to float16 during quantization
+  warnings.warn(f"MatMul8bitLt: inputs will be cast from {A.dtype} to float16 during quantization")
+  0%|▍                                                                                                                                                                   | 1/370 [00:27<2:46:20, 27.05s/it]
+{'loss': 2.5519, 'learning_rate': 7.5e-05, 'epoch': 0.03}
+
+
+  1%|█▎                                                                                                                                                                  | 3/370 [01:15<2:31:14, 24.73s/it]
+
+  1%|█▊                                                                                                                                                                  | 4/370 [01:39<2:29:23, 24.49s/it]
+
+  1%|██▏                                                                                                                                                                 | 5/370 [02:03<2:28:00, 24.33s/it]
+{'loss': 2.4705, 'learning_rate': 0.0002999944741871565, 'epoch': 0.14}
+
+  2%|██▋                                                                                                                                                                 | 6/370 [02:28<2:27:56, 24.39s/it]
+
+  2%|███                                                                                                                                                                 | 7/370 [02:52<2:27:15, 24.34s/it]
+
+  2%|███▌                                                                                                                                                                | 8/370 [03:16<2:26:30, 24.28s/it]
+
+
+  3%|████▍                                                                                                                                                              | 10/370 [04:04<2:25:15, 24.21s/it]
+
+  3%|████▊                                                                                                                                                              | 11/370 [04:29<2:25:00, 24.24s/it]
+
+  3%|█████▎                                                                                                                                                             | 12/370 [04:53<2:24:49, 24.27s/it]
+
+  4%|█████▋                                                                                                                                                             | 13/370 [05:17<2:24:29, 24.28s/it]
+{'loss': 2.4927, 'learning_rate': 0.00029955262896727894, 'epoch': 0.35}
+Aborted!
+  4%|█████▋                                                                                                                                                             | 13/370 [05:41<2:36:06, 26.24s/it]

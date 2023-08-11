@@ -38,3 +38,4 @@ MANIFEST
 
 /QC_pipeline/model_zoo/
 /QC_pipeline/dataset/
+/QA_pipeline/scripts/wandb/

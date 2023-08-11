@@ -16,4 +16,7 @@ def save_csv(df, file_path):
     else:
         mode = "w"
         header = True
+    print('\n')
+    print(df.head(5))
+    print('\n')
     df.to_csv(file_path, mode=mode, header=header, index=False)

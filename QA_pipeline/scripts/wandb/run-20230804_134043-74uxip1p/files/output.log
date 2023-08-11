@@ -1,0 +1,28 @@
+Found cached dataset json (/home/st-aleksandr-razin/.cache/huggingface/datasets/RazinAleks___json/RazinAleks--SO-Python_QA-Data_Science_and_Machine_Learning_class-81f83bcd8b3cf0a9/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Loading cached processed dataset at /home/st-aleksandr-razin/.cache/huggingface/datasets/RazinAleks___json/RazinAleks--SO-Python_QA-Data_Science_and_Machine_Learning_class-81f83bcd8b3cf0a9/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5d734272de693c1c.arrow
+
+
+
+
+  7%|████████████▋                                                                                                                                                                     | 4/56 [10:36<2:18:52, 160.24s/it]
+                                            Question                                             Answer                                              Title  Score  ...   ROUGE_1   ROUGE_2   ROUGE_L      BLEU
+0  I would like to reuse the same Spark applicati...  To the best of my knowledge, it is not possibl...  How to request the spark session object from a...    0.0  ...  0.253521  0.037736  0.117371  0.046465
+1  I am using pandas.read_csv() to read a csv fil...  Try to change the encoding of the file to UTF-...  How to deal with special characters like � in ...    0.0  ...  0.060000  0.000000  0.060000  0.033893
+2  I am using pandas to read in csv data to my py...  That just means that one of the files has a ch...  Encoding csv error with Pandas - have to encod...    0.0  ...  0.126649  0.015915  0.073879  0.082873
+3  Recently, I've been interested in Data analysi...  Though I don't know the exact notations and eq...  Why Does Tree and Ensemble based Algorithm don...    0.0  ...  0.325581  0.043732  0.127907  0.046413
+4  Recently, I've been interested in Data analysi...  Do not confuse trees and ensembles (which may ...  Why Does Tree and Ensemble based Algorithm don...    0.0  ...  0.329787  0.053763  0.159574  0.070968
+
+
+
+
+
+ 16%|████████████████████████████▌                                                                                                                                                     | 9/56 [23:26<2:02:33, 156.45s/it]
+                                            Question                                             Answer  ...   ROUGE_L      BLEU
+0  I have a dataframe where the indexes are not n...  Why you don make the index to be created with ...  ...  0.139860  0.086022
+1  I have a pandas Timestamp column that looks li...  use a regular expression by looking for the ho...  ...  0.071429  0.000000
+2  I'm doing PID gain tuning for a DC motor\nI ga...  In the cases that you use the step command to ...  ...  0.117647  0.063025
+3  On google colab I installed conda and then cud...  No, cudf is not available as a pip package.\nY...  ...  0.106383  0.035714
+4  While writing in CSV file, automatically folde...  That's just the way Spark works with the paral...  ...  0.182927  0.037016
+
+ 18%|███████████████████████████████▌                                                                                                                                                 | 10/56 [26:31<2:01:58, 159.10s/it]
+Aborted!

@@ -7,8 +7,10 @@ from torchmetrics import SacreBLEUScore
 from torchmetrics.text.rouge import ROUGEScore
 from tqdm import tqdm
 from transformers import GenerationConfig
+from wandb import AlertLevel
 
-from SRC_QC4QA.utils import log_metrics_histograms, log_table, save_csv
+
+from QA_pipeline.utils import log_metrics_histograms, log_table, save_csv
 
 # def generate_outputs(model, batch_ids, generation_config):
 #     # Assuming that your model is on CUDA
@@ -32,18 +34,15 @@ from SRC_QC4QA.utils import log_metrics_histograms, log_table, save_csv
 
 
 def generate_outputs(model, batch_ids, generation_config):
-    with torch.autocast("cuda"):
+    with torch.autocast('cuda'):
         output_tokens = (
             model.generate(
-                input_ids=batch_ids["input_ids"].to('cuda:1'), ###
-                attention_mask=batch_ids["attention_mask"].to('cuda:1'),###
+                input_ids=batch_ids["input_ids"], ###
+                attention_mask=batch_ids["attention_mask"],###
                 generation_config=generation_config,
             )
-            .detach()
             .cpu()
             .numpy()
-            # .cpu()
-            # .numpy()
         )
     return output_tokens
 
@@ -119,7 +118,6 @@ def eval_model(
 
     results = pd.DataFrame()
     generation_config = GenerationConfig(**generate_config)
-    model = model.to('cuda:1')
     for i, (batch_ids, batch_qa) in enumerate(tqdm(zip(dataloader_ids, dataloader_qa), total=len(dataloader_qa))):
         batch_ids = {k: v.to(model.device) for k, v in batch_ids.items()}
         output_tokens = generate_outputs(model, batch_ids, generation_config)
@@ -164,6 +162,14 @@ def eval_model(
             # Clear the results for the next iteration
             results = pd.DataFrame()
             gc.collect()
+
+        if i >= int(len(dataloader_qa) - (len(dataloader_qa) * 5 / 100)): #####
+            run.alert(
+                title='95% of test are finished!',
+                text='You should prepare new train',
+                level=AlertLevel.WARN,
+                wait_duration=5
+            )
 
     if not results.empty:
         log_results(results, log_config, run)

@@ -1,1 +1,1 @@
-from question_classification import DataPreprocessing
+from QC_pipeline import DataPreprocessing

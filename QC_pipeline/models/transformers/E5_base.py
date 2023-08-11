@@ -1,5 +1,7 @@
 import torch
 import torch.nn as nn
+import torch.nn.init as init
+
 from torch import Tensor
 import torch.nn.functional as F
 
@@ -54,12 +56,22 @@ class TextClassifier(nn.Module):
 
         # Define the layers for the classification network
         self.fc0 = nn.Linear(n_inputs, 512)
+        # Initialize with Xavier Uniform
+        init.xavier_uniform_(self.fc0.weight)
+
         if self.batch_norm: self.bn0 = nn.BatchNorm1d(512)
         if self.dropout_rate: self.dropout0 = nn.Dropout(dropout_rate)
+        
         self.fc1 = nn.Linear(512, 256)
+        # Initialize with Xavier Uniform
+        init.xavier_uniform_(self.fc1.weight)
+        
         if self.batch_norm: self.bn1 = nn.BatchNorm1d(256)
         if self.dropout_rate: self.dropout1 = nn.Dropout(dropout_rate)
+        
         self.fc2 = nn.Linear(256, num_classes)
+        # Initialize with Xavier Uniform
+        init.xavier_uniform_(self.fc2.weight)
         # Creating multiple output heads, one for each class
         #self.fcs = nn.ModuleList([nn.Linear(256, 1) for _ in range(num_classes)])
 

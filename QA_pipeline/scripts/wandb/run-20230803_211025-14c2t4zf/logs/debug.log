@@ -1,0 +1,30 @@
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_setup.py:_flush():76] Current SDK version is 0.15.5
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_setup.py:_flush():76] Configure stats pid to 2092595
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_setup.py:_flush():76] Loading settings from /home/st-aleksandr-razin/.config/wandb/settings
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_setup.py:_flush():76] Loading settings from /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/settings
+2023-08-03 21:10:25,373 WARNING MainThread:2092595 [wandb_setup.py:_flush():76] Unknown environment variable: WANDB_CONFIG_DIR
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_setup.py:_flush():76] Loading settings from environment variables: {}
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'QA_pipeline/scripts/test_script.py', 'program': '/home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/test_script.py'}
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_setup.py:_flush():76] Applying login settings: {'api_key': '***REDACTED***'}
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_setup.py:_flush():76] Applying login settings: {'api_key': '***REDACTED***'}
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_init.py:_log_setup():507] Logging user logs to /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230803_211025-14c2t4zf/logs/debug.log
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_init.py:_log_setup():508] Logging internal logs to /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230803_211025-14c2t4zf/logs/debug-internal.log
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_init.py:init():547] calling init triggers
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_init.py:init():554] wandb.init called with sweep_config: {}
+config: {'model': {'name': '/raid/models/llama-7b-hf', 'load_in_8bit': True, 'peft_model_id': '/home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/artifacts/experiments/train-ptune-llama-Data_Science_and_Machine_Learning_class-7b-bs_16-lr_1e4-m_l_1280-m_p_l_768-num_toks_512-w_decay_0.1', 'torch_dtype': 'fp16', 'device_map': 'cuda:0', 'padding_side': 'left'}, 'seed': 42, 'batch_size': 16, 'compute_metrics': True, 'data': {'dataset_name': 'RazinAleks/SO-Python_QA-Data_Science_and_Machine_Learning_class', 'max_prompt_length': 768, 'split': 'test', 'use_title': True, 'columns_to_save': ['Question', 'Answer', 'Title', 'Score', 'Users Score']}, 'generate_config': {'do_sample': True, 'max_new_tokens': 512, 'no_repeat_ngram_size': 2, 'top_k': 50, 'top_p': 0.9, 'use_cache': True, 'num_return_sequences': 1}}
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_init.py:init():596] starting backend
+2023-08-03 21:10:25,373 INFO    MainThread:2092595 [wandb_init.py:init():600] setting up manager
+2023-08-03 21:10:25,374 INFO    MainThread:2092595 [backend.py:_multiprocessing_setup():106] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2023-08-03 21:10:25,375 INFO    MainThread:2092595 [wandb_init.py:init():606] backend started and connected
+2023-08-03 21:10:25,376 INFO    MainThread:2092595 [wandb_init.py:init():705] updated telemetry
+2023-08-03 21:10:25,380 INFO    MainThread:2092595 [wandb_init.py:init():738] communicating run to backend with 60.0 second timeout
+2023-08-03 21:10:25,871 INFO    MainThread:2092595 [wandb_run.py:_on_init():2173] communicating current version
+2023-08-03 21:10:26,041 INFO    MainThread:2092595 [wandb_run.py:_on_init():2182] got version response upgrade_message: "wandb version 0.15.8 is available!  To upgrade, please run:\n $ pip install wandb --upgrade"
+
+2023-08-03 21:10:26,041 INFO    MainThread:2092595 [wandb_init.py:init():789] starting run threads in backend
+2023-08-03 21:10:28,661 INFO    MainThread:2092595 [wandb_run.py:_console_start():2152] atexit reg
+2023-08-03 21:10:28,661 INFO    MainThread:2092595 [wandb_run.py:_redirect():2007] redirect: SettingsConsole.WRAP_RAW
+2023-08-03 21:10:28,661 INFO    MainThread:2092595 [wandb_run.py:_redirect():2072] Wrapping output streams.
+2023-08-03 21:10:28,662 INFO    MainThread:2092595 [wandb_run.py:_redirect():2097] Redirects installed.
+2023-08-03 21:10:28,662 INFO    MainThread:2092595 [wandb_init.py:init():830] run started, returning control to user process
+2023-08-03 21:11:59,684 WARNING MsgRouterThr:2092595 [router.py:message_loop():77] message_loop has been closed

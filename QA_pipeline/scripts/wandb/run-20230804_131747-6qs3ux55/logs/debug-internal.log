@@ -1,0 +1,193 @@
+2023-08-04 13:17:47,466 INFO    StreamThr :2690533 [internal.py:wandb_internal():86] W&B internal server running at pid: 2690533, started at: 2023-08-04 13:17:47.465923
+2023-08-04 13:17:47,468 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: status
+2023-08-04 13:17:47,469 INFO    WriterThread:2690533 [datastore.py:open_for_write():85] open: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/run-6qs3ux55.wandb
+2023-08-04 13:17:47,470 DEBUG   SenderThread:2690533 [sender.py:send():369] send: header
+2023-08-04 13:17:47,470 DEBUG   SenderThread:2690533 [sender.py:send():369] send: run
+2023-08-04 13:17:47,899 INFO    SenderThread:2690533 [dir_watcher.py:__init__():211] watching files in: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files
+2023-08-04 13:17:47,900 INFO    SenderThread:2690533 [sender.py:_start_run_threads():1100] run started: 6qs3ux55 with start time 1691144267.464604
+2023-08-04 13:17:47,901 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: summary_record
+2023-08-04 13:17:47,901 INFO    SenderThread:2690533 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-08-04 13:17:47,906 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: check_version
+2023-08-04 13:17:47,906 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: check_version
+2023-08-04 13:17:48,051 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: run_start
+2023-08-04 13:17:48,056 DEBUG   HandlerThread:2690533 [system_info.py:__init__():31] System info init
+2023-08-04 13:17:48,056 DEBUG   HandlerThread:2690533 [system_info.py:__init__():46] System info init done
+2023-08-04 13:17:48,056 INFO    HandlerThread:2690533 [system_monitor.py:start():181] Starting system monitor
+2023-08-04 13:17:48,056 INFO    SystemMonitor:2690533 [system_monitor.py:_start():145] Starting system asset monitoring threads
+2023-08-04 13:17:48,057 INFO    HandlerThread:2690533 [system_monitor.py:probe():201] Collecting system info
+2023-08-04 13:17:48,058 INFO    SystemMonitor:2690533 [interfaces.py:start():190] Started cpu monitoring
+2023-08-04 13:17:48,058 INFO    SystemMonitor:2690533 [interfaces.py:start():190] Started disk monitoring
+2023-08-04 13:17:48,059 INFO    SystemMonitor:2690533 [interfaces.py:start():190] Started gpu monitoring
+2023-08-04 13:17:48,061 INFO    SystemMonitor:2690533 [interfaces.py:start():190] Started memory monitoring
+2023-08-04 13:17:48,061 INFO    SystemMonitor:2690533 [interfaces.py:start():190] Started network monitoring
+2023-08-04 13:17:48,111 ERROR   gpu       :2690533 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-04 13:17:48,118 ERROR   gpu       :2690533 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-04 13:17:48,119 DEBUG   HandlerThread:2690533 [system_info.py:probe():195] Probing system
+2023-08-04 13:17:48,121 DEBUG   HandlerThread:2690533 [system_info.py:_probe_git():180] Probing git
+2023-08-04 13:17:48,127 DEBUG   HandlerThread:2690533 [system_info.py:_probe_git():188] Probing git done
+2023-08-04 13:17:48,127 DEBUG   HandlerThread:2690533 [system_info.py:probe():240] Probing system done
+2023-08-04 13:17:48,127 DEBUG   HandlerThread:2690533 [system_monitor.py:probe():210] {'os': 'Linux-5.4.0-150-generic-x86_64-with-glibc2.31', 'python': '3.10.12', 'heartbeatAt': '2023-08-04T10:17:48.119831', 'startedAt': '2023-08-04T10:17:47.460356', 'docker': None, 'cuda': None, 'args': ('--config_file', '/home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/config/test_config.yaml'), 'state': 'running', 'program': '/home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/test_script.py', 'codePath': 'QA_pipeline/scripts/test_script.py', 'git': {'remote': 'https://github.com/RazinAleksandr/SRC_QC4QA.git', 'commit': 'c000db14d0799b72883bfb8ff18839b1d9134893'}, 'email': 'razin.x.aleks@gmail.com', 'root': '/home/st-aleksandr-razin/workspace/SRC_QC4QA', 'host': 'DGX', 'username': 'st-aleksandr-razin', 'executable': '/home/st-aleksandr-razin/.conda/envs/qc4qa/bin/python', 'cpu_count': 64, 'cpu_count_logical': 128, 'cpu_freq': {'current': 2090.2436953125, 'min': 1500.0, 'max': 2250.0}, 'cpu_freq_per_core': [{'current': 1700.645, 'min': 1500.0, 'max': 2250.0}, {'current': 1676.982, 'min': 1500.0, 'max': 2250.0}, {'current': 1676.63, 'min': 1500.0, 'max': 2250.0}, {'current': 3347.06, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.546, 'min': 1500.0, 'max': 2250.0}, {'current': 1607.017, 'min': 1500.0, 'max': 2250.0}, {'current': 1616.668, 'min': 1500.0, 'max': 2250.0}, {'current': 1613.931, 'min': 1500.0, 'max': 2250.0}, {'current': 1629.655, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.033, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.86, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.353, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.233, 'min': 1500.0, 'max': 2250.0}, {'current': 1797.737, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.912, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.842, 'min': 1500.0, 'max': 2250.0}, {'current': 3343.36, 'min': 1500.0, 'max': 2250.0}, {'current': 1672.728, 'min': 1500.0, 'max': 2250.0}, {'current': 1667.041, 'min': 1500.0, 'max': 2250.0}, {'current': 1671.412, 'min': 1500.0, 'max': 2250.0}, {'current': 1671.718, 'min': 1500.0, 'max': 2250.0}, {'current': 1670.887, 'min': 1500.0, 'max': 2250.0}, {'current': 3338.977, 'min': 1500.0, 'max': 2250.0}, {'current': 1671.551, 'min': 1500.0, 'max': 2250.0}, {'current': 1671.272, 'min': 1500.0, 'max': 2250.0}, {'current': 3331.427, 'min': 1500.0, 'max': 2250.0}, {'current': 1669.678, 'min': 1500.0, 'max': 2250.0}, {'current': 1670.13, 'min': 1500.0, 'max': 2250.0}, {'current': 1670.835, 'min': 1500.0, 'max': 2250.0}, {'current': 1671.376, 'min': 1500.0, 'max': 2250.0}, {'current': 3330.495, 'min': 1500.0, 'max': 2250.0}, {'current': 1670.494, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.552, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.069, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.088, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.712, 'min': 1500.0, 'max': 2250.0}, {'current': 1720.333, 'min': 1500.0, 'max': 2250.0}, {'current': 1717.925, 'min': 1500.0, 'max': 2250.0}, {'current': 2458.662, 'min': 1500.0, 'max': 2250.0}, {'current': 1724.373, 'min': 1500.0, 'max': 2250.0}, {'current': 1654.724, 'min': 1500.0, 'max': 2250.0}, {'current': 3029.631, 'min': 1500.0, 'max': 2250.0}, {'current': 2260.157, 'min': 1500.0, 'max': 2250.0}, {'current': 1667.11, 'min': 1500.0, 'max': 2250.0}, {'current': 1736.609, 'min': 1500.0, 'max': 2250.0}, {'current': 1740.453, 'min': 1500.0, 'max': 2250.0}, {'current': 1652.814, 'min': 1500.0, 'max': 2250.0}, {'current': 1797.371, 'min': 1500.0, 'max': 2250.0}, {'current': 3343.12, 'min': 1500.0, 'max': 2250.0}, {'current': 3317.124, 'min': 1500.0, 'max': 2250.0}, {'current': 1656.419, 'min': 1500.0, 'max': 2250.0}, {'current': 1670.596, 'min': 1500.0, 'max': 2250.0}, {'current': 1878.923, 'min': 1500.0, 'max': 2250.0}, {'current': 1736.404, 'min': 1500.0, 'max': 2250.0}, {'current': 1737.757, 'min': 1500.0, 'max': 2250.0}, {'current': 1732.978, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.676, 'min': 1500.0, 'max': 2250.0}, {'current': 1791.316, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.633, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.29, 'min': 1500.0, 'max': 2250.0}, {'current': 3312.652, 'min': 1500.0, 'max': 2250.0}, {'current': 1657.923, 'min': 1500.0, 'max': 2250.0}, {'current': 1656.372, 'min': 1500.0, 'max': 2250.0}, {'current': 3332.382, 'min': 1500.0, 'max': 2250.0}, {'current': 3321.193, 'min': 1500.0, 'max': 2250.0}, {'current': 2194.084, 'min': 1500.0, 'max': 2250.0}, {'current': 2175.439, 'min': 1500.0, 'max': 2250.0}, {'current': 3317.68, 'min': 1500.0, 'max': 2250.0}, {'current': 2319.758, 'min': 1500.0, 'max': 2250.0}, {'current': 2296.225, 'min': 1500.0, 'max': 2250.0}, {'current': 2307.412, 'min': 1500.0, 'max': 2250.0}, {'current': 2285.268, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.575, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.911, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.522, 'min': 1500.0, 'max': 2250.0}, {'current': 1797.445, 'min': 1500.0, 'max': 2250.0}, {'current': 1737.197, 'min': 1500.0, 'max': 2250.0}, {'current': 1734.543, 'min': 1500.0, 'max': 2250.0}, {'current': 1732.759, 'min': 1500.0, 'max': 2250.0}, {'current': 2297.265, 'min': 1500.0, 'max': 2250.0}, {'current': 3304.196, 'min': 1500.0, 'max': 2250.0}, {'current': 1659.151, 'min': 1500.0, 'max': 2250.0}, {'current': 1661.124, 'min': 1500.0, 'max': 2250.0}, {'current': 1584.756, 'min': 1500.0, 'max': 2250.0}, {'current': 2223.637, 'min': 1500.0, 'max': 2250.0}, {'current': 1760.12, 'min': 1500.0, 'max': 2250.0}, {'current': 3311.744, 'min': 1500.0, 'max': 2250.0}, {'current': 1736.001, 'min': 1500.0, 'max': 2250.0}, {'current': 2106.648, 'min': 1500.0, 'max': 2250.0}, {'current': 3180.764, 'min': 1500.0, 'max': 2250.0}, {'current': 1671.494, 'min': 1500.0, 'max': 2250.0}, {'current': 1656.489, 'min': 1500.0, 'max': 2250.0}, {'current': 1750.004, 'min': 1500.0, 'max': 2250.0}, {'current': 1657.345, 'min': 1500.0, 'max': 2250.0}, {'current': 3323.389, 'min': 1500.0, 'max': 2250.0}, {'current': 1657.138, 'min': 1500.0, 'max': 2250.0}, {'current': 1719.653, 'min': 1500.0, 'max': 2250.0}, {'current': 2238.101, 'min': 1500.0, 'max': 2250.0}, {'current': 1741.39, 'min': 1500.0, 'max': 2250.0}, {'current': 1785.626, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.127, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.148, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.9, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.825, 'min': 1500.0, 'max': 2250.0}, {'current': 1658.642, 'min': 1500.0, 'max': 2250.0}, {'current': 3334.23, 'min': 1500.0, 'max': 2250.0}, {'current': 1671.513, 'min': 1500.0, 'max': 2250.0}, {'current': 1658.491, 'min': 1500.0, 'max': 2250.0}, {'current': 1792.579, 'min': 1500.0, 'max': 2250.0}, {'current': 1767.083, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.612, 'min': 1500.0, 'max': 2250.0}, {'current': 1796.471, 'min': 1500.0, 'max': 2250.0}, {'current': 3324.89, 'min': 1500.0, 'max': 2250.0}, {'current': 3323.432, 'min': 1500.0, 'max': 2250.0}, {'current': 1659.267, 'min': 1500.0, 'max': 2250.0}, {'current': 1659.776, 'min': 1500.0, 'max': 2250.0}, {'current': 3146.299, 'min': 1500.0, 'max': 2250.0}, {'current': 1739.247, 'min': 1500.0, 'max': 2250.0}, {'current': 1736.064, 'min': 1500.0, 'max': 2250.0}, {'current': 1545.077, 'min': 1500.0, 'max': 2250.0}, {'current': 1794.032, 'min': 1500.0, 'max': 2250.0}, {'current': 1793.381, 'min': 1500.0, 'max': 2250.0}, {'current': 1795.513, 'min': 1500.0, 'max': 2250.0}, {'current': 1697.146, 'min': 1500.0, 'max': 2250.0}, {'current': 3324.651, 'min': 1500.0, 'max': 2250.0}, {'current': 1662.718, 'min': 1500.0, 'max': 2250.0}, {'current': 1662.955, 'min': 1500.0, 'max': 2250.0}, {'current': 3336.598, 'min': 1500.0, 'max': 2250.0}], 'disk': {'total': 1757.8785285949707, 'used': 557.694709777832}, 'gpu': 'A100-SXM4-80GB', 'gpu_count': 5, 'gpu_devices': [{'name': 'A100-SXM4-80GB', 'memory_total': 85199093760}, {'name': 'A100-SXM4-80GB', 'memory_total': 85199093760}, {'name': 'A100-SXM4-80GB', 'memory_total': 85199093760}, {'name': 'DGX Display', 'memory_total': 4101898240}, {'name': 'A100-SXM4-80GB', 'memory_total': 85199093760}], 'memory': {'total': 503.7392120361328}}
+2023-08-04 13:17:48,127 INFO    HandlerThread:2690533 [system_monitor.py:probe():211] Finished collecting system info
+2023-08-04 13:17:48,127 INFO    HandlerThread:2690533 [system_monitor.py:probe():214] Publishing system info
+2023-08-04 13:17:48,127 DEBUG   HandlerThread:2690533 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-08-04 13:17:48,128 DEBUG   HandlerThread:2690533 [system_info.py:_save_pip():67] Saving pip packages done
+2023-08-04 13:17:48,128 DEBUG   HandlerThread:2690533 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-08-04 13:17:48,901 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_created():272] file/dir created: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/requirements.txt
+2023-08-04 13:17:48,902 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_created():272] file/dir created: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/wandb-summary.json
+2023-08-04 13:17:48,902 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_created():272] file/dir created: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/conda-environment.yaml
+2023-08-04 13:17:50,134 ERROR   gpu       :2690533 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-04 13:17:50,141 ERROR   gpu       :2690533 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-04 13:17:50,654 DEBUG   HandlerThread:2690533 [system_info.py:_save_conda():86] Saving conda packages done
+2023-08-04 13:17:50,655 INFO    HandlerThread:2690533 [system_monitor.py:probe():216] Finished publishing system info
+2023-08-04 13:17:50,657 DEBUG   SenderThread:2690533 [sender.py:send():369] send: files
+2023-08-04 13:17:50,657 INFO    SenderThread:2690533 [sender.py:_save_file():1354] saving file wandb-metadata.json with policy now
+2023-08-04 13:17:50,663 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: stop_status
+2023-08-04 13:17:50,663 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: stop_status
+2023-08-04 13:17:50,901 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/conda-environment.yaml
+2023-08-04 13:17:50,901 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_created():272] file/dir created: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/wandb-metadata.json
+2023-08-04 13:17:50,966 DEBUG   SenderThread:2690533 [sender.py:send():369] send: telemetry
+2023-08-04 13:17:51,224 INFO    wandb-upload_0:2690533 [upload_job.py:push():133] Uploaded file /tmp/tmp34feu7n2wandb/9xhtrri9-wandb-metadata.json
+2023-08-04 13:17:52,157 ERROR   gpu       :2690533 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-04 13:17:52,168 ERROR   gpu       :2690533 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-04 13:17:52,903 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_created():272] file/dir created: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/output.log
+2023-08-04 13:17:53,406 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: status_report
+2023-08-04 13:17:54,185 ERROR   gpu       :2690533 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-04 13:17:54,192 ERROR   gpu       :2690533 [interfaces.py:monitor():144] Failed to sample metric: Not Supported
+2023-08-04 13:17:54,904 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/output.log
+2023-08-04 13:17:55,506 DEBUG   SenderThread:2690533 [sender.py:send():369] send: exit
+2023-08-04 13:17:55,506 INFO    SenderThread:2690533 [sender.py:send_exit():574] handling exit code: 1
+2023-08-04 13:17:55,506 INFO    SenderThread:2690533 [sender.py:send_exit():576] handling runtime: 7
+2023-08-04 13:17:55,506 INFO    SenderThread:2690533 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-08-04 13:17:55,506 INFO    SenderThread:2690533 [sender.py:send_exit():582] send defer
+2023-08-04 13:17:55,507 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:55,507 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 0
+2023-08-04 13:17:55,507 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:55,507 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 0
+2023-08-04 13:17:55,507 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 1
+2023-08-04 13:17:55,507 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:55,507 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 1
+2023-08-04 13:17:55,507 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:55,507 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 1
+2023-08-04 13:17:55,507 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 2
+2023-08-04 13:17:55,507 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:55,507 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 2
+2023-08-04 13:17:55,507 INFO    HandlerThread:2690533 [system_monitor.py:finish():190] Stopping system monitor
+2023-08-04 13:17:55,508 DEBUG   SystemMonitor:2690533 [system_monitor.py:_start():159] Starting system metrics aggregation loop
+2023-08-04 13:17:55,508 DEBUG   SystemMonitor:2690533 [system_monitor.py:_start():166] Finished system metrics aggregation loop
+2023-08-04 13:17:55,508 DEBUG   SystemMonitor:2690533 [system_monitor.py:_start():170] Publishing last batch of metrics
+2023-08-04 13:17:55,509 INFO    HandlerThread:2690533 [interfaces.py:finish():202] Joined cpu monitor
+2023-08-04 13:17:55,509 INFO    HandlerThread:2690533 [interfaces.py:finish():202] Joined disk monitor
+2023-08-04 13:17:55,904 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/wandb-summary.json
+2023-08-04 13:17:56,176 ERROR   gpu       :2690533 [interfaces.py:aggregate():161] Failed to serialize metric: division by zero
+2023-08-04 13:17:56,176 INFO    HandlerThread:2690533 [interfaces.py:finish():202] Joined gpu monitor
+2023-08-04 13:17:56,177 INFO    HandlerThread:2690533 [interfaces.py:finish():202] Joined memory monitor
+2023-08-04 13:17:56,177 INFO    HandlerThread:2690533 [interfaces.py:finish():202] Joined network monitor
+2023-08-04 13:17:56,177 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:56,178 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 2
+2023-08-04 13:17:56,178 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 3
+2023-08-04 13:17:56,178 DEBUG   SenderThread:2690533 [sender.py:send():369] send: stats
+2023-08-04 13:17:56,178 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:56,178 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 3
+2023-08-04 13:17:56,178 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:56,179 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 3
+2023-08-04 13:17:56,179 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 4
+2023-08-04 13:17:56,179 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:56,179 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 4
+2023-08-04 13:17:56,179 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:56,179 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 4
+2023-08-04 13:17:56,179 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 5
+2023-08-04 13:17:56,179 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:56,179 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 5
+2023-08-04 13:17:56,179 DEBUG   SenderThread:2690533 [sender.py:send():369] send: summary
+2023-08-04 13:17:56,180 INFO    SenderThread:2690533 [sender.py:_save_file():1354] saving file wandb-summary.json with policy end
+2023-08-04 13:17:56,180 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:56,180 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 5
+2023-08-04 13:17:56,180 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 6
+2023-08-04 13:17:56,180 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:56,180 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 6
+2023-08-04 13:17:56,180 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:56,180 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 6
+2023-08-04 13:17:56,184 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: status_report
+2023-08-04 13:17:56,458 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 7
+2023-08-04 13:17:56,458 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:56,459 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 7
+2023-08-04 13:17:56,459 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:56,459 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 7
+2023-08-04 13:17:56,506 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: poll_exit
+2023-08-04 13:17:56,904 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/output.log
+2023-08-04 13:17:56,905 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/wandb-summary.json
+2023-08-04 13:17:56,905 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/config.yaml
+2023-08-04 13:17:58,417 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 8
+2023-08-04 13:17:58,417 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: poll_exit
+2023-08-04 13:17:58,417 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:58,417 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 8
+2023-08-04 13:17:58,418 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:58,418 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 8
+2023-08-04 13:17:58,418 INFO    SenderThread:2690533 [job_builder.py:build():240] Attempting to build job artifact
+2023-08-04 13:17:58,418 INFO    SenderThread:2690533 [job_builder.py:build():264] is repo sourced job
+2023-08-04 13:17:58,419 INFO    SenderThread:2690533 [job_builder.py:build():305] adding wandb-job metadata file
+2023-08-04 13:17:58,422 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 9
+2023-08-04 13:17:58,422 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:58,423 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 9
+2023-08-04 13:17:58,423 DEBUG   SenderThread:2690533 [sender.py:send():369] send: artifact
+2023-08-04 13:17:58,905 INFO    Thread-12 :2690533 [dir_watcher.py:_on_file_modified():289] file/dir modified: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/output.log
+2023-08-04 13:17:59,236 INFO    SenderThread:2690533 [sender.py:send_artifact():1450] sent artifact job-https___github.com_RazinAleksandr_SRC_QC4QA.git_QA_pipeline_scripts_test_script.py - {'id': 'QXJ0aWZhY3Q6NTMxNTQzNTcz', 'digest': '22b0d414e4acbccd25218392884a9c6e', 'state': 'COMMITTED', 'aliases': [{'artifactCollectionName': 'job-https___github.com_RazinAleksandr_SRC_QC4QA.git_QA_pipeline_scripts_test_script.py', 'alias': 'latest'}, {'artifactCollectionName': 'job-https___github.com_RazinAleksandr_SRC_QC4QA.git_QA_pipeline_scripts_test_script.py', 'alias': 'v0'}], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjg3NzA1OTk2', 'latestArtifact': {'id': 'QXJ0aWZhY3Q6NTMxNTgxMTMy', 'versionIndex': 1}}, 'version': 'v0'}
+2023-08-04 13:17:59,236 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:59,236 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 9
+2023-08-04 13:17:59,236 INFO    SenderThread:2690533 [dir_watcher.py:finish():359] shutting down directory watcher
+2023-08-04 13:17:59,906 INFO    SenderThread:2690533 [dir_watcher.py:finish():389] scan: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files
+2023-08-04 13:17:59,906 INFO    SenderThread:2690533 [dir_watcher.py:finish():403] scan save: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/conda-environment.yaml conda-environment.yaml
+2023-08-04 13:17:59,906 INFO    SenderThread:2690533 [dir_watcher.py:finish():403] scan save: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/config.yaml config.yaml
+2023-08-04 13:17:59,906 INFO    SenderThread:2690533 [dir_watcher.py:finish():403] scan save: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/wandb-metadata.json wandb-metadata.json
+2023-08-04 13:17:59,906 INFO    SenderThread:2690533 [dir_watcher.py:finish():403] scan save: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/wandb-summary.json wandb-summary.json
+2023-08-04 13:17:59,907 INFO    SenderThread:2690533 [dir_watcher.py:finish():403] scan save: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/requirements.txt requirements.txt
+2023-08-04 13:17:59,910 INFO    SenderThread:2690533 [dir_watcher.py:finish():403] scan save: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/output.log output.log
+2023-08-04 13:17:59,911 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 10
+2023-08-04 13:17:59,913 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:17:59,915 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 10
+2023-08-04 13:17:59,916 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:17:59,918 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 10
+2023-08-04 13:17:59,918 INFO    SenderThread:2690533 [file_pusher.py:finish():159] shutting down file pusher
+2023-08-04 13:18:00,354 INFO    wandb-upload_1:2690533 [upload_job.py:push():133] Uploaded file /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/config.yaml
+2023-08-04 13:18:00,478 INFO    wandb-upload_0:2690533 [upload_job.py:push():133] Uploaded file /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/conda-environment.yaml
+2023-08-04 13:18:00,549 INFO    wandb-upload_3:2690533 [upload_job.py:push():133] Uploaded file /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/requirements.txt
+2023-08-04 13:18:00,570 INFO    wandb-upload_4:2690533 [upload_job.py:push():133] Uploaded file /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/output.log
+2023-08-04 13:18:00,595 INFO    wandb-upload_2:2690533 [upload_job.py:push():133] Uploaded file /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/files/wandb-summary.json
+2023-08-04 13:18:00,795 INFO    Thread-11 (_thread_body):2690533 [sender.py:transition_state():602] send defer: 11
+2023-08-04 13:18:00,796 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:18:00,796 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 11
+2023-08-04 13:18:00,796 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:18:00,797 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 11
+2023-08-04 13:18:00,797 INFO    SenderThread:2690533 [file_pusher.py:join():164] waiting for file pusher
+2023-08-04 13:18:00,797 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 12
+2023-08-04 13:18:00,797 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:18:00,797 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 12
+2023-08-04 13:18:00,797 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:18:00,797 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 12
+2023-08-04 13:18:00,979 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 13
+2023-08-04 13:18:00,980 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:18:00,980 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 13
+2023-08-04 13:18:00,980 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:18:00,980 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 13
+2023-08-04 13:18:00,980 INFO    SenderThread:2690533 [sender.py:transition_state():602] send defer: 14
+2023-08-04 13:18:00,980 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: defer
+2023-08-04 13:18:00,980 INFO    HandlerThread:2690533 [handler.py:handle_request_defer():170] handle defer: 14
+2023-08-04 13:18:00,981 DEBUG   SenderThread:2690533 [sender.py:send():369] send: final
+2023-08-04 13:18:00,981 DEBUG   SenderThread:2690533 [sender.py:send():369] send: footer
+2023-08-04 13:18:00,981 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: defer
+2023-08-04 13:18:00,981 INFO    SenderThread:2690533 [sender.py:send_request_defer():598] handle sender defer: 14
+2023-08-04 13:18:00,982 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: poll_exit
+2023-08-04 13:18:00,982 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: poll_exit
+2023-08-04 13:18:00,982 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: server_info
+2023-08-04 13:18:00,983 DEBUG   SenderThread:2690533 [sender.py:send_request():396] send_request: server_info
+2023-08-04 13:18:00,984 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: get_summary
+2023-08-04 13:18:00,984 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: sampled_history
+2023-08-04 13:18:01,143 INFO    MainThread:2690533 [wandb_run.py:_footer_history_summary_info():3464] rendering history
+2023-08-04 13:18:01,144 INFO    MainThread:2690533 [wandb_run.py:_footer_history_summary_info():3496] rendering summary
+2023-08-04 13:18:01,144 INFO    MainThread:2690533 [wandb_run.py:_footer_sync_info():3423] logging synced files
+2023-08-04 13:18:01,144 DEBUG   HandlerThread:2690533 [handler.py:handle_request():144] handle_request: shutdown
+2023-08-04 13:18:01,144 INFO    HandlerThread:2690533 [handler.py:finish():854] shutting down handler
+2023-08-04 13:18:01,983 INFO    WriterThread:2690533 [datastore.py:close():298] close: /home/st-aleksandr-razin/workspace/SRC_QC4QA/QA_pipeline/scripts/wandb/run-20230804_131747-6qs3ux55/run-6qs3ux55.wandb
+2023-08-04 13:18:02,143 INFO    SenderThread:2690533 [sender.py:finish():1526] shutting down sender
+2023-08-04 13:18:02,144 INFO    SenderThread:2690533 [file_pusher.py:finish():159] shutting down file pusher
+2023-08-04 13:18:02,144 INFO    SenderThread:2690533 [file_pusher.py:join():164] waiting for file pusher

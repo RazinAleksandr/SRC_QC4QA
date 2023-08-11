@@ -10,6 +10,9 @@ import pytorch_lightning as pl
 
 from typing import Dict, Any
 
+import nltk
+nltk.download('stopwords')
+
 from . import (E5Dataset, TextClassifier, print_config)
 from .E5_exp import E5Xperiment
 
@@ -36,7 +39,7 @@ def main(config_path: str) -> None:
     data.setup()
 
     # Initialize your logger
-    wandb_logger = WandbLogger(project='SRC_QC4QA', name='multilabel_with_code_exp_3', log_model='all')
+    wandb_logger = WandbLogger(project='SRC_QC4QA', name='m_l-code-distil-e5_base_v2-e5_small_v2', log_model='all')
 
     # Initialize your callbacks
     checkpoint_callback = ModelCheckpoint(
