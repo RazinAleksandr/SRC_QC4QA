@@ -1,6 +1,6 @@
 model_run_name:
   adapter_type: "Lora"
-  domain_class: "API_USAGE"
+  domain_class: "GUI_Desktop_Applications"
   main_model: "llama-7b-hf"
 
 model:

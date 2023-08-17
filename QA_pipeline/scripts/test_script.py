@@ -25,7 +25,7 @@ def main(config_file):
     with open(config_file, "r") as f:
         config = yaml.load(f, Loader=CLoader)
 
-    model_run_name = f"test-{config['eval']['generate_config']['max_new_tokens']}-{config['eval']['generate_config']['temperature']}" + f"{config['eval']['model']['peft_model_id'].split('/')[-1]}"[5:]
+    model_run_name = f"test-{config['eval']['generate_config']['max_new_tokens']}-{config['eval']['generate_config']['temperature']}" #+ f"{config['eval']['model']['peft_model_id'].split('/')[-1]}"[5:]
 
     config['eval']['data']['dataset_name'] += config['run_config']['domain']
     
