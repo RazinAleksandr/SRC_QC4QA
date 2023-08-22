@@ -115,7 +115,7 @@ def eval_model(
 
     rouge = ROUGEScore()
     bleu = SacreBLEUScore(1, lowercase=True)
-
+    print(model)
     results = pd.DataFrame()
     generation_config = GenerationConfig(**generate_config)
     for i, (batch_ids, batch_qa) in enumerate(tqdm(zip(dataloader_ids, dataloader_qa), total=len(dataloader_qa))):

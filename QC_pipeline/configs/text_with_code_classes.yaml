@@ -110,6 +110,7 @@ GUI and Desktop Applications:
 - pyqt4
 - wxwidgets
 - pyqt5
+- exe
 - pillow
 - gtk
 - flask-wtforms
@@ -117,6 +118,7 @@ GUI and Desktop Applications:
 - pygtk
 - wxpython
 - c++
+- c#
 - tkinter
 - turtle-graphics
 - web2py
@@ -181,12 +183,10 @@ Networking and APIs:
 Other:
 - mechanize
 - importerror
-- exe
 - email
 - jquery
 - mod-wsgi
 - events
-- ssh
 - nose
 - text-files
 - newline
@@ -220,7 +220,6 @@ Other:
 - dll
 - discord
 - aiohttp
-- c#
 - gevent
 - amazon-ec2
 - unicode
@@ -284,6 +283,7 @@ Other:
 Python Basics and Environment:
 - python-unittest
 - importerror
+- types
 - nested
 - python-venv
 - string-formatting
@@ -368,7 +368,7 @@ Python Basics and Environment:
 - python-imaging-library
 - forms
 - cython
-- python
+# - python
 - multithreading
 - list-comprehension
 - syntax-error
@@ -412,7 +412,6 @@ Python Basics and Environment:
 - exception-handling
 - initialization
 - encryption
-- types
 - conditional-statements
 - scope
 - attributeerror
@@ -424,6 +423,7 @@ System Administration and DevOps:
 - docker-compose
 - apache-kafka
 - azure
+- ssh
 - airflow
 - command-line
 - dockerfile

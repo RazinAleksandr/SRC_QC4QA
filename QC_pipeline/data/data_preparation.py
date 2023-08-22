@@ -6,9 +6,10 @@ from skmultilearn.model_selection import iterative_train_test_split
 from sklearn.utils import shuffle
 from os.path import join as opj
 import numpy as np
-from . import DataPreprocessing
 import warnings
 warnings.filterwarnings('ignore')
+
+from utils.base_preproc import DataPreprocessing
 
 
 def parse_args():

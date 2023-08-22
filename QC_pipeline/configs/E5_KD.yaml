@@ -18,7 +18,7 @@ student_model_params:
   activation: "leaky_relu"
 
 data_params:
-  data_path: "/home/st-aleksandr-razin/workspace/SRC_QC4QA/QC_pipeline/dataset"
+  data_path: "/home/st-aleksandr-razin/workspace/SRC_QC4QA/QC_pipeline/dataset/train_vsl_data"
   tokenizer_name: "intfloat/e5-base"
   max_len: 512
   train_batch_size: 256 # 64

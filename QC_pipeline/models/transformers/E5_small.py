@@ -9,7 +9,7 @@ import sys
 sys.path.append('../')
 
 # Ignore warning on model loading
-from E5_base import TextClassifier
+from .E5_base import TextClassifier
 from transformers import logging
 logging.set_verbosity_error()
 

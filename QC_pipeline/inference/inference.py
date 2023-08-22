@@ -89,8 +89,8 @@ def main(args):
     sys.path.append("/home/st-aleksandr-razin/workspace/SRC_QC4QA/models_zoo/classifiers/model.ckpt")
 
     device = args.device
-    tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-base")
-    classifier = TextClassifier("intfloat/e5-base", n_inputs=768, batch_norm=True)
+    tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-small")
+    classifier = SmallTextClassifier("intfloat/e5-small", n_inputs=384, batch_norm=True)
 
     print("Loading model weights...")
     state_dict = torch.load(args.model_weights)
@@ -98,7 +98,7 @@ def main(args):
     new_state_dict = dict()
 
     for key, value in state_dict.items():
-        if 't_' in key:
+        if 's_' in key:
             new_state_dict[key[8:]] = value
 
     classifier.load_state_dict(new_state_dict)

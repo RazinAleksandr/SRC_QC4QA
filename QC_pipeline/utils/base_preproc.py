@@ -5,12 +5,12 @@ import yaml
 from ast import literal_eval
 
 # Load the YAML file
-"""with open('/home/arazin/main/work/HUAWEI/SRC/QCQA/question_classification/configs/text_with_code_classes.yaml', 'r') as file:
+with open('/home/st-aleksandr-razin/workspace/SRC_QC4QA/QC_pipeline/configs/text_with_code_classes.yaml', 'r') as file:
     data = yaml.load(file, Loader=yaml.FullLoader)
-"""
+
 # Access the dictionary
-#tags_classification = data
-tags_classification = 'check'
+tags_classification = data
+# tags_classification = 'check'
 
 def preprocess_text(text):
     # Remove newlines and carriage returns
@@ -47,7 +47,8 @@ class DataPreprocessing:
         self.df = df
 
     def preprocess_tags(self):
-        self.df['Tags_Q'] = self.df['Tags_Q'].apply(literal_eval) #convert to list type
+        # self.df['Tags_Q'] = self.df['Tags_Q'].apply(lambda x: x.split(',')) #convert to list type
+        self.df['Tags_Q'] = self.df['Tags_Q'].apply(lambda x: literal_eval(x)) #convert to list type
         #self.df['Tags_Q'] = self.df['Tags_Q'].apply(lambda x: x.split(','))
         #self.df['Tags_A'] = self.df['Tags_A'].astype(str).str.strip('[]').str.replace("'", "").split(', ')
 
@@ -59,7 +60,7 @@ class DataPreprocessing:
         #self.df['Body_A'] = self.df['Body_A'].apply(func)
 
     def preprocess_QC4QA(self):
-        question_data = self.df[['Title_Q', 'Body_Q', 'Tags_Q']]
+        question_data = self.df[['Title_Q', 'Body_Q', 'Tags_Q', 'Id_Q']]
         question_data.drop_duplicates('Title_Q',inplace=True)
         question_data.reset_index(inplace=True, drop=True)
 
@@ -89,9 +90,9 @@ class DataPreprocessing:
         
         marked_data['Label'] = marked_data['Label'].apply(convert_labels)
         marked_data.reset_index(drop=True, inplace=True)
-        return marked_data[['Text', 'Label']]
+        return marked_data[['Text', 'Label', 'Id_Q']]
 
     def perform_preprocessing(self, preproc_text=preprocess_text):
         self.preprocess_tags()
-        self.preprocess_body(preproc_text)
-        self.preprocess_title(preproc_text)
+        # self.preprocess_body(preproc_text)
+        # self.preprocess_title(preproc_text)
