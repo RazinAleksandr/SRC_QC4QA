@@ -58,10 +58,17 @@ def make_inference_dataset(
 
         return tokenized_dict
 
-    # if kwargs.get("eval_split"):
-    #     split = kwargs["eval_split"]
+    if kwargs.get("eval_split"):
+        split = kwargs["eval_split"]
 
-    dataset = load_dataset(dataset_name, split=split)
+    # dataset = load_dataset(dataset_name, split=split) #####!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    dataset = load_dataset(
+    "json",
+    data_files={
+        "test": "/home/st-aleksandr-razin/workspace/SRC_QC4QA/data/summarization/labeled_samples/data_science_no_description.json",
+    }, split=split
+)
+    print('code description' in dataset['Question'][0])
     dataset = dataset.map(promt_tokenize)
 
     dataset.set_format(

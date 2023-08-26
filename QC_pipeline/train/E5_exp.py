@@ -7,7 +7,9 @@ import torch
 import wandb
 import random
 
-from . import TextClassifier, cross_entropy_loss, calculate_metrics, binary_cross_entropy_loss
+from QC_pipeline.models.transformers.E5_base import TextClassifier
+from QC_pipeline.utils.losses import cross_entropy_loss, binary_cross_entropy_loss, focal_loss
+from QC_pipeline.utils.metrics import calculate_metrics
 
 
 class E5Xperiment(pl.LightningModule):
@@ -60,7 +62,7 @@ class E5Xperiment(pl.LightningModule):
         # Send the weights to the same device as your model
         weights = self.weights.to(self.curr_device)
 
-        train_loss = binary_cross_entropy_loss(
+        train_loss = focal_loss(
             results, y_batch)
             #results, y_batch, weights=weights, calculate_weights=True)
         
@@ -73,7 +75,7 @@ class E5Xperiment(pl.LightningModule):
         self.curr_device = y_batch.device
 
         results = self.forward(batch_dict)
-        val_loss = binary_cross_entropy_loss(
+        val_loss = focal_loss(
             results, y_batch)
         vall_metrics = calculate_metrics(results, y_batch)
         #############################

@@ -60,7 +60,8 @@ class DataPreprocessing:
         #self.df['Body_A'] = self.df['Body_A'].apply(func)
 
     def preprocess_QC4QA(self):
-        question_data = self.df[['Title_Q', 'Body_Q', 'Tags_Q', 'Id_Q']]
+        # question_data = self.df[['Title_Q', 'Body_Q', 'Tags_Q', 'Id_Q']]
+        question_data = self.df.copy()
         question_data.drop_duplicates('Title_Q',inplace=True)
         question_data.reset_index(inplace=True, drop=True)
 
@@ -90,7 +91,8 @@ class DataPreprocessing:
         
         marked_data['Label'] = marked_data['Label'].apply(convert_labels)
         marked_data.reset_index(drop=True, inplace=True)
-        return marked_data[['Text', 'Label', 'Id_Q']]
+        return marked_data
+        # return marked_data[['Text', 'Label', 'Id_Q']]
 
     def perform_preprocessing(self, preproc_text=preprocess_text):
         self.preprocess_tags()

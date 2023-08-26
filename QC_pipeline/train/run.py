@@ -1,20 +1,20 @@
 import argparse
 import warnings
-
 import yaml
-from pytorch_lightning import Trainer, loggers
+from typing import Dict, Any
+
 from pytorch_lightning.callbacks import LearningRateMonitor, ModelCheckpoint
 from pytorch_lightning.loggers import WandbLogger
-from pytorch_lightning.strategies import DDPStrategy
+from pytorch_lightning import Trainer
 import pytorch_lightning as pl
 
-from typing import Dict, Any
 
 import nltk
 nltk.download('stopwords')
 
-from . import (E5Dataset, TextClassifier, print_config)
-from .E5_exp import E5Xperiment
+from QC_pipeline.data.tl_dataset import E5Dataset
+from QC_pipeline.models.transformers.E5_base import TextClassifier
+from QC_pipeline.train.E5_exp import E5Xperiment
 
 warnings.filterwarnings('ignore')
 
@@ -39,7 +39,8 @@ def main(config_path: str) -> None:
     data.setup()
 
     # Initialize your logger
-    wandb_logger = WandbLogger(project='SRC_QC4QA', name='m_l-code-distil-e5_base_v2-e5_small_v2', log_model='all')
+    model_run_name = f"train-multilabel-code_descr-lr_{config['exp_params']['LR']}-dp_{config['model_params']['dropout_rate']}-bs_{config['data_params']['train_batch_size']}-sh_exp_{config['exp_params']['scheduler_gamma']}-wd_{config['exp_params']['weight_decay']}"
+    wandb_logger = WandbLogger(project='SRC_QC4QA', name=model_run_name, log_model='all')
 
     # Initialize your callbacks
     checkpoint_callback = ModelCheckpoint(

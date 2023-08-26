@@ -1,18 +1,18 @@
 import argparse
-import torch
 from tqdm import tqdm
-import torch.nn.functional as F
 import pandas as pd
 import sys
-import json
 import time
 
-sys.path.append('../models/transformers')
+import torch.nn.functional as F
+import torch
 
-from E5_base import TextClassifier
-from E5_small import SmallTextClassifier
 from transformers import AutoTokenizer
 from datasets import load_dataset
+
+from QC_pipeline.models.transformers.E5_base import TextClassifier
+from QC_pipeline.models.transformers.E5_small import SmallTextClassifier
+
 
 def gen_batch(df, batch_size):
     length = len(df)
@@ -54,7 +54,9 @@ def inference(df, classifier, tokenizer, threshold, batch_size):
     @timer
     def process_batch(batch):
         text_batch = (
-            batch["Title"] + " " + batch["Question"]
+            # batch["Title"] + " " + batch["Question"]
+            # "title: " + batch["Title"] + "\nquestion: " + batch["Question"]
+            batch['Text']
         )  # combine 'Title' and 'Question'
         encoded_batch = tokenizer(
             text_batch.tolist(),
@@ -85,12 +87,9 @@ def inference(df, classifier, tokenizer, threshold, batch_size):
 
 def main(args):
     print(args)
-
-    sys.path.append("/home/st-aleksandr-razin/workspace/SRC_QC4QA/models_zoo/classifiers/model.ckpt")
-
     device = args.device
-    tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-small")
-    classifier = SmallTextClassifier("intfloat/e5-small", n_inputs=384, batch_norm=True)
+    tokenizer = AutoTokenizer.from_pretrained("intfloat/e5-base")
+    classifier = TextClassifier("intfloat/e5-base", n_inputs=768, batch_norm=True)
 
     print("Loading model weights...")
     state_dict = torch.load(args.model_weights)
@@ -98,22 +97,23 @@ def main(args):
     new_state_dict = dict()
 
     for key, value in state_dict.items():
-        if 's_' in key:
+        if 't_' in key:
             new_state_dict[key[8:]] = value
 
     classifier.load_state_dict(new_state_dict)
     classifier.to(device)
 
     print("Loading dataset...")
-    dataset = load_dataset(args.dataset)
-    df = pd.concat(
-        [
-            # dataset["train"].to_pandas(),
-            dataset["validation"].to_pandas(),
-            # dataset["test"].to_pandas(),
-        ],
-        ignore_index=True,
-    )
+    # dataset = load_dataset(args.dataset)
+    # df = pd.concat(
+    #     [
+    #         # dataset["train"].to_pandas(),
+    #         dataset["validation"].to_pandas(),
+    #         # dataset["test"].to_pandas(),
+    #     ],
+    #     ignore_index=True,
+    # )
+    df = pd.read_csv('/home/st-aleksandr-razin/workspace/SRC_QC4QA/QC_pipeline/dataset/train_val_data/val.csv')
     print("Starting inference...")
     classified_df, batch_times = inference(df, classifier, tokenizer, args.threshold, args.batch_size)  # <-- capture the batch times here
     batch_times_df = pd.DataFrame({"batch_time_seconds": batch_times})

@@ -3,34 +3,35 @@ model_params:
   model_name: "intfloat/e5-base"
   num_classes: 8
   n_inputs: 768
-
-  batch_norm: true
-  dropout_rate: 0.2
+ 
+  batch_norm: true #false
+  dropout_rate: 0.3
   activation: "leaky_relu"
 
+
 data_params:
-  data_path: "/home/arazin/main/work/HUAWEI/SRC/QCQA/question_classification/dataset/processed_data"
+  data_path: "/home/st-aleksandr-razin/workspace/SRC_QC4QA/QC_pipeline/dataset/train_val_data"
   tokenizer_name: "intfloat/e5-base"
   max_len: 512
-  train_batch_size: 128
-  val_batch_size: 128
+  train_batch_size: 264
+  val_batch_size: 264
   num_workers: 8
   pin_memory: False
   transform: False
 
 exp_params:
-  LR: 0.0001
-  weight_decay: 0.0
-  scheduler_gamma: 0.9
+  LR: 0.00005
+  weight_decay: 0.25
+  scheduler_gamma: 0.95
   kld_weight: 0.00025
   manual_seed: 1265
   freeze: true
 
 trainer_params:
   #gpus: [1]
-  devices: 2
+  devices: [0]
   log_every_n_steps: 1
-  val_check_interval: 100
+  val_check_interval: 300
   max_epochs: 20
 
 logging_params:

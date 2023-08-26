@@ -1,20 +1,20 @@
 import argparse
 import warnings
-
 import yaml
-from pytorch_lightning import Trainer, loggers
+from typing import Dict, Any
+
 from pytorch_lightning.callbacks import LearningRateMonitor, ModelCheckpoint
 from pytorch_lightning.loggers import WandbLogger
-from pytorch_lightning.strategies import DDPStrategy
+from pytorch_lightning import Trainer
 import pytorch_lightning as pl
-
-from typing import Dict, Any
 
 import nltk
 nltk.download('stopwords')
 
-from . import (E5Dataset, TextClassifier, SmallTextClassifier, print_config)
-from .E5_KD_exp import E5Xperiment
+from QC_pipeline.data.tl_dataset import E5Dataset
+from QC_pipeline.models.transformers.E5_base import TextClassifier
+from QC_pipeline.models.transformers.E5_small import SmallTextClassifier
+from QC_pipeline.train.E5_KD_exp import E5Xperiment
 
 warnings.filterwarnings('ignore')
 
@@ -38,7 +38,7 @@ def main(config_path: str) -> None:
         **config["data_params"], 
         )
     data.setup()
-
+    
     # Initialize your logger
     model_run_name = f"train-kdistil-multilabel-code-lr_{config['exp_params']['LR']}-dp_{config['teacher_model_params']['dropout_rate']}-bs_{config['data_params']['train_batch_size']}-sh_exp_{config['exp_params']['scheduler_gamma']}-wd_{config['exp_params']['weight_decay']}-temp_{config['exp_params']['temperature']}-dw_{config['exp_params']['distill_weight']}"
     wandb_logger = WandbLogger(project='SRC_QC4QA', name=model_run_name, log_model='all')

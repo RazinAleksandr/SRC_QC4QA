@@ -9,7 +9,8 @@ import numpy as np
 import warnings
 warnings.filterwarnings('ignore')
 
-from utils.base_preproc import DataPreprocessing
+
+from QC_pipeline.utils.base_preproc import DataPreprocessing
 
 
 def parse_args():
@@ -36,7 +37,8 @@ def main():
     preprocessor.perform_preprocessing()
     preprocessed_df = preprocessor.preprocess_QC4QA()
     print(f"Processed data shape: {preprocessed_df.shape}")
-
+    preprocessed_df.to_csv(opj(config['processed_data_path'], 'full_dataset_labeled_no_description.csv'), index=False)
+    
     # Split the data
     #train_df, val_df = train_test_split(preprocessed_df, test_size=config['val_size'], shuffle=config['shuffle'], random_state=42)
     # Convert your DataFrame column to a numpy array

@@ -9,8 +9,8 @@ from tqdm import tqdm
 from transformers import GenerationConfig
 from wandb import AlertLevel
 
-
 from QA_pipeline.utils import log_metrics_histograms, log_table, save_csv
+
 
 # def generate_outputs(model, batch_ids, generation_config):
 #     # Assuming that your model is on CUDA

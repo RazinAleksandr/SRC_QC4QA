@@ -22,30 +22,30 @@ data_params:
   tokenizer_name: "intfloat/e5-base"
   max_len: 512
   train_batch_size: 256 # 64
-  val_batch_size: 128
+  val_batch_size: 256
   num_workers: 8
   pin_memory: False
   transform: False
 
 exp_params:
-  LR: 0.00003 # 1e-4
-  weight_decay: 0.3
+  LR: 0.0001 # 1e-4
+  weight_decay: 0.001  #0.25
   scheduler_gamma: 0.95
   distill_weight: 0.5 ## 0.25
-  temperature: 1
+  temperature: 2  #1
   manual_seed: 17
   freeze: true
 
 trainer_params:
   #gradient_clip_val: 1
   #gradient_clip_algorithm: "value"
-  devices: [0]  #[1]
+  devices: [3]  #[1]
   accelerator: "gpu"
   #gpus: "1"
   #devices: 2
   log_every_n_steps: 1
-  val_check_interval: 400
-  max_epochs: 20
+  val_check_interval: 60
+  max_epochs: 50
 
 logging_params:
   log_dir: "/home/st-aleksandr-razin/workspace/SRC_QC4QA/QC_pipeline/artifacts/logs"

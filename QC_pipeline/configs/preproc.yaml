@@ -1,5 +1,5 @@
-raw_data_path: "/home/st-aleksandr-razin/workspace/SRC_QC4QA/data/summarization/final/question_with_code_description.csv"
-processed_data_path: "/home/st-aleksandr-razin/workspace/SRC_QC4QA/QC_pipeline/dataset/train_vsl_data"
+raw_data_path: "/home/st-aleksandr-razin/workspace/SRC_QC4QA/data/summarization/final/question_with_code_description_raw.csv"
+processed_data_path: "/home/st-aleksandr-razin/workspace/SRC_QC4QA/QC_pipeline/dataset/train_val_code_no_summ"
 classes_path: "/home/st-aleksandr-razin/workspace/SRC_QC4QA/QC_pipeline/configs/text_with_code_classes.yaml"
-val_size: 0.15
+val_size: 0.3
 shuffle: true

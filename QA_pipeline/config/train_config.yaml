@@ -1,6 +1,6 @@
 model_run_name:
   adapter_type: "Lora"
-  domain_class: "GUI_Desktop_Applications"
+  domain_class: "Web_Development"
   main_model: "llama-7b-hf"
 
 model:
@@ -14,7 +14,7 @@ model:
 lora_config:
   r: 8
   lora_alpha: 32
-  lora_dropout: 0.1
+  lora_dropout: 0.2
   bias: "none"
 
 ptune_config:
@@ -41,10 +41,10 @@ training_arguments:
   num_train_epochs: 10
   per_device_train_batch_size: 32
   per_device_eval_batch_size: 32
-  learning_rate: 0.00003 #1.0e-04
+  learning_rate: 0.0003 #1.0e-04
   optim: "adamw_torch"
   # Oprims: adamw_hf/adamw_torch/adamw_torch_fused/adamw_apex_fused/adamw_anyprecision/adafactor
-  weight_decay: 0.2
+  weight_decay: 0.01
   adam_beta1: 0.9
   adam_beta2: 0.99
   max_grad_norm: 1

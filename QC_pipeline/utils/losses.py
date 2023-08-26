@@ -50,3 +50,24 @@ def KLD_loss(teacher_logits, student_logits,reduction='batchmean'):
     return student_distill_loss
 
 
+def focal_loss(logits, targets, gamma=0.5):
+    # Reshape logits and targets for calculation
+    logits_flat = logits.view(-1, logits.size(-1))
+    targets_flat = targets.view(-1, logits.size(-1))
+    
+    # Calculate sigmoid activation for logits
+    probs = torch.sigmoid(logits_flat)
+    
+    # Calculate p for positive and 1-p for negative targets
+    p = torch.where(targets_flat >= 0.5, probs, 1 - probs)
+    
+    # Calculate -log(p) for both positive and negative targets
+    logp = -torch.log(torch.clamp(p, 1e-4, 1 - 1e-4))
+    
+    # Calculate the focal loss component
+    loss = logp * ((1 - p) ** gamma)
+    
+    # Calculate the mean loss
+    loss = loss.mean()
+    
+    return loss

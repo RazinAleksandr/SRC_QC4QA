@@ -1,9 +1,9 @@
 from pytorch_lightning import LightningDataModule
-from .torch_datasets import TextClassificationDataset
 from torch.utils.data import DataLoader
 from typing import List, Optional, Union
 from os.path import join as opj
 
+from QC_pipeline.data.torch_datasets import TextClassificationDataset
 
 class E5Dataset(LightningDataModule):
     """

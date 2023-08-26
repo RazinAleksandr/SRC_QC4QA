@@ -48,7 +48,7 @@ class DataPreprocessing:
     
     def generate_code_descriptions(self, tokenizer, model, code_question_df, batch_size=64):
         code_question_df['code_description'] = ''
-        device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+        device = torch.device("cuda:2" if torch.cuda.is_available() else "cpu")
         model = model.to(device)
 
         dataset = CodeDataset(code_question_df, tokenizer)
@@ -83,7 +83,8 @@ class DataPreprocessing:
                 print(self.df.loc[self.df['Id_Q'] == question_id, 'Body_Q'].values[0])
             
             # Replace the code with its description in the question
-            question = question.replace(f'<pre><code>{code_snip}</code></pre>', f'code description start: {description} code description end')
+            # question = question.replace(f'<pre><code>{code_snip}</code></pre>', f'code description start: {description} code description end')
+            question = question.replace(f'<pre><code>{code_snip}</code></pre>', f'\n<pre><code>{code_snip}</code></pre>\ncode description start: {description} code description end\n')
             
             # Update the question in the question DataFrame
             self.df.loc[self.df['Id_Q'] == question_id, 'Body_Q'] = question

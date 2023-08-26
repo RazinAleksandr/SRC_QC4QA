@@ -25,16 +25,16 @@ def main(config_file):
     with open(config_file, "r") as f:
         config = yaml.load(f, Loader=CLoader)
 
-    model_run_name = f"test-{config['eval']['generate_config']['max_new_tokens']}-{config['eval']['generate_config']['temperature']}" + f"{config['eval']['model']['peft_model_id'].split('/')[-1]}"[5:] + '_LoRa'
+    model_run_name = f"test-{config['eval']['generate_config']['max_new_tokens']}-{config['eval']['generate_config']['temperature']}" #+ f"{config['eval']['model']['peft_model_id'].split('/')[-1]}"[5:] + '_LoRa'
 
-    config['eval']['data']['dataset_name'] += config['run_config']['domain']
+    #config['eval']['data']['dataset_name'] += config['run_config']['domain']
     
     config['log_config']['dir'] = config['log_config']['dir'] + config['run_config']['domain']
     config['log_config']['file_name'] = model_run_name + '.csv'
     
     config['wandb_config']['name'] = model_run_name
     config['wandb_config']['tags'] += [config['run_config']['domain'][:-6]]
-    config['wandb_config']['tags'] += [config['run_config']['adapter']]
+    #config['wandb_config']['tags'] += [config['run_config']['adapter']]
 
     # print(config['eval']['data']['dataset_name'])
     # print(config['log_config']['dir'])

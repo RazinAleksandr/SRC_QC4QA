@@ -1,5 +1,6 @@
 from datasets import load_dataset
-from .PackedQuestionAnswerDataset import PackedQuestionAnswerDataset
+
+from QA_pipeline.data.PackedQuestionAnswerDataset import PackedQuestionAnswerDataset
 
 
 def make_train_dataset(

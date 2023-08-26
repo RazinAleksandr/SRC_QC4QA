@@ -1,14 +1,15 @@
 import pytorch_lightning as pl
-from torch import optim
-from torch.optim.lr_scheduler import _LRScheduler
-from typing import Dict, Union, List, Tuple
+from typing import Dict, Union
 from torch import Tensor
 import torch
 import torch.nn.functional as F
 import wandb
 import random
 
-from . import TextClassifier, SmallTextClassifier, cross_entropy_loss, calculate_metrics, binary_cross_entropy_loss, KLD_loss
+from QC_pipeline.models.transformers.E5_base import TextClassifier
+from QC_pipeline.models.transformers.E5_small import SmallTextClassifier
+from QC_pipeline.utils.losses import cross_entropy_loss, binary_cross_entropy_loss, KLD_loss
+from QC_pipeline.utils.metrics import calculate_metrics
 
 
 class E5Xperiment(pl.LightningModule):
@@ -20,6 +21,8 @@ class E5Xperiment(pl.LightningModule):
 
         self.t_model = teacher_model
         self.s_model = student_model
+        print(self.t_model)
+        print(self.s_model)
         self.params = params
         self.curr_device = None
         self.hold_graph = False
@@ -34,15 +37,21 @@ class E5Xperiment(pl.LightningModule):
                 if 'model' in name:
                     param.requires_grad = False
                 else:
-                    print(name)
                     param.requires_grad = True
             for i, (name, param) in enumerate(self.s_model.named_parameters()):
-                if 'model' in name:
+                if 'model' in name: #and 'model.encoder.layer.11' not in name and 'model.pooler' not in name:
                     param.requires_grad = False
                 else:
-                    print(name)
                     param.requires_grad = True
-        
+
+        ## log params
+        for name, param in self.t_model.named_parameters():
+            if param.requires_grad:
+                print(name)
+        for name, param in self.s_model.named_parameters():
+            if param.requires_grad:
+                print(name)
+
         # Counts of each class in your training set
         # counts = [456, 1224, 578, 223, 147, 99, 587, 6, 433]
         self.classes = [j for j in range(9)]
