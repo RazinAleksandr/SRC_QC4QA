@@ -125,8 +125,6 @@ def plot_cls_P_R(df):
     plt.show()
 
 
-
-
 def plot_distributions(teacher_times, student_times, teacher_metrics, student_metrics, quant=0.9):
     # Compute the 0.9 quantiles for teacher and student times
     teacher_quantile = np.quantile(teacher_times, quant)
