@@ -69,11 +69,20 @@ def plot_relative_cls_summarization(df1, df_summ):
     
     # Plotting heatmap
     plt.figure(figsize=(16, 18))
+    cbar_kws = {
+        'label': 'Ratio',
+        'orientation': 'horizontal',  # Make colorbar horizontal
+    }
     heatmap = sns.heatmap(df_heatmap, annot=True, cmap=custom_colormap, center=1, vmin=0, vmax=2, fmt=".2f", 
-                          linewidths=.5, cbar_kws={'label': 'Ratio'}, annot_kws={"size": 20})
+                          linewidths=.5, cbar_kws=cbar_kws, annot_kws={"size": 20})
+    
+    # Set font size for the colorbar label and ticks
+    cbar = heatmap.collections[0].colorbar
+    cbar.ax.set_xlabel(cbar.ax.get_xlabel(), fontsize=20)
+    cbar.ax.tick_params(labelsize=20)  # Set font size for colorbar ticks
     
     # Adjust font sizes
-    plt.title('Relative Metrics Gain (Distilled + Summarization vs Distilled) by Class', fontsize=20)
+    plt.title('Relative Metrics Gain (Base trained on summarization vs Base) by Class', fontsize=20)
     plt.xticks(fontsize=20)
     plt.yticks(fontsize=20)
     heatmap.figure.axes[-1].yaxis.label.set_size(20)  # Increase colorbar label font size
@@ -96,18 +105,26 @@ def plot_cls_metrics(df):
 def plot_cls_P_R(df):
     metrics = compute_metrics(df)
     symbols = ["o", "s", "D", "^", "v", "<", ">", "p", "*", "H"]
-    plt.figure(figsize=(10, 5))
+    plt.figure(figsize=(14, 6))
+    
+    plt.xlabel('Precision', fontsize=20)  # Increase x-axis label font size
+    plt.ylabel('Recall', fontsize=20)     # Increase y-axis label font size
+    plt.title('Comparison of Precision/Recall scores for different classes', fontsize=20)
+    plt.grid(True, which='both', linestyle='--', linewidth=0.5)
+    
+    plt.xticks(fontsize=20)
+    plt.yticks(fontsize=20)
+    
     for idx, (p, r) in enumerate(zip(metrics['Precision'], metrics['Recall'])):
         plt.scatter(p, r, marker=symbols[idx], s=100, label=classes[idx])
 
-    plt.xlabel('Precision')
-    plt.ylabel('Recall')
-    plt.title('Comparison of Precision/Recall scores for different classes')
-    plt.grid(True, which='both', linestyle='--', linewidth=0.5)
-    # Place the legend outside the plot
-    plt.legend(loc='center left', bbox_to_anchor=(1, 0.5))
-    plt.tight_layout()  # This ensures that everything fits well
+    # Move the legend to the right of the plot
+    plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), fontsize=12)
+    
+    plt.tight_layout()
     plt.show()
+
+
 
 
 def plot_distributions(teacher_times, student_times, teacher_metrics, student_metrics, quant=0.9):
@@ -153,10 +170,15 @@ def plot_batch_times(teacher_times, student_times, teacher_metrics, student_metr
     plt.plot(batches, student_times[1:], label=f'Student Times (Total: {np.sum(student_times):.2f}s)', color='green', alpha=0.5, linewidth=0.5)
     plt.plot(batches, student_moving_avg, color='green', linewidth=1.5)
     
-    plt.title(f'Inference Time Per Batch: Teacher (F1-score: {teacher_metrics}) vs Student (F1-score: {student_metrics})')
-    plt.xlabel('Batches')
-    plt.ylabel('Time (seconds)')
-    plt.legend()
+    plt.title(f'Inference Time Per Batch: Teacher (F1-score: {teacher_metrics}) vs Student (F1-score: {student_metrics})', fontsize=18)
+    plt.xlabel('Batches', fontsize=18)
+    plt.ylabel('Time (seconds)', fontsize=18)
+    
+    # Increase font size of legend labels and text
+    plt.legend(fontsize=16)
+    # Increase font size of x and y axis tick labels
+    plt.xticks(fontsize=16)
+    plt.yticks(fontsize=16)
     
     plt.tight_layout()  # Adjust layout for better display
     plt.show()
